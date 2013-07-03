@@ -130,6 +130,15 @@
 	background: -ms-linear-gradient(top, @startColor, @endColor);
 	background: -o-linear-gradient(top, @startColor, @endColor);
 }
+.pure-gradient-middle-color( @startColor, @endColor, @middleColor, @IEStartColor, @IEEndColor ){
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@IEStartColor, endColorstr=@IEEndColor,GradientType=0);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(40%, @middleColor), to(@endColor));
+    background-image: -webkit-linear-gradient(@startColor, @middleColor 40%, @endColor);
+    background-image: -moz-linear-gradient(top, @middleColor 0%, @endColor);
+    background-image: -ms-linear-gradient(@startColor, @middleColor 40%, @endColor);
+    background-image: -o-linear-gradient(@startColor, @middleColor 40%, @endColor);
+    background-image: linear-gradient(@startColor, @middleColor 40%, @endColor);
+}
 .horizontal-gradient (@startColor: #eee, @endColor: white) {
  	background-color: @startColor;
 	background-image: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
@@ -137,6 +146,13 @@
 	background-image: -moz-linear-gradient(left, @startColor, @endColor);
 	background-image: -ms-linear-gradient(left, @startColor, @endColor);
 	background-image: -o-linear-gradient(left, @startColor, @endColor);
+}
+
+.user-select( @args ){
+	-webkit-user-select: @args;
+    -moz-user-select: @args;
+    -ms-user-select: @args;
+    user-select: @args;
 }
 
 .animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
@@ -150,6 +166,13 @@
 	-moz-transition:    @transition;
 	-ms-transition:     @transition; 
 	-o-transition:      @transition;  
+}
+.transition-shadow( @args ){
+	-webkit-transition: @args -webkit-box-shadow;
+    -moz-transition: @args -moz-box-shadow;
+    -ms-transition: @args box-shadow;
+    -o-transition: @args box-shadow;
+    transition: @args box-shadow;
 }
 .transform(@string){
 	-webkit-transform: @string;

@@ -1,0 +1,94 @@
+import "variables.less";
+
+/** TODO: The colors and disabled are not defined properly yet; */
+
+.pure-button {
+    /* Structure */
+    display: inline-block;
+    *display: inline; /*IE 6/7*/
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    .user-select( none );
+    &::-moz-focus-inner {
+        /* Firefox: Get rid of the inner focus border */
+        padding: 0;
+        border: 0;
+    }
+}
+
+/* I let these separated for compatibility among versions of pureCSS.io */
+
+.pure-button {
+    font-size: 100%;
+    *font-size: 90%; /*IE 6/7 - To reduce IE's oversized button text*/
+    *overflow: visible; /*IE 6/7 - Because of IE's overly large left/right padding on buttons */
+    padding: 0.5em 1.5em 0.5em;
+    color: @button-color-unsupported-rgba; /* rgba not supported (IE 8) */
+    color: @button-color; /* rgba supported */
+    *color: @button-color-unsupported-rgba; /* IE 6 & 7 */
+    border: 1px solid @IE-color-button-border;  /*IE 6/7/8*/
+    border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
+    background-color: @button-bg;
+    text-decoration: none;
+    .border-radius( 2px );
+    -webkit-font-smoothing: antialiased;
+    /* Transitions */
+    .transition-shadow( 0.1s linear );
+    .box-shadow( 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset );
+    &:hover, &:focus{
+        .pure-gradient-middle-color( transparent, rgba(0,0,0, 0.10), rgba(0,0,0, 0.05) , '#00000000', '#1a000000' );
+    }
+    &:focus {
+        outline: 0;
+    }
+    &:active{
+        .box-shadow( 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset );
+    }
+}
+
+.pure-button-hover
+    .pure-gradient-middle-color( transparent, rgba(0,0,0, 0.10), rgba(0,0,0, 0.05) , '#00000000', '#1a000000' );
+
+}
+.pure-button-active{
+    .box-shadow( 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset );
+}
+
+.pure-button[disabled],
+.pure-button-disabled,
+.pure-button-disabled:hover,
+.pure-button-disabled:focus,
+.pure-button-disabled:active {
+    border: none;
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    filter: alpha(opacity=40);
+    -khtml-opacity: 0.40;
+    -moz-opacity: 0.40;
+    opacity: 0.40;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.pure-button-hidden {
+    display: none;
+}
+
+/* Firefox: Get rid of the inner focus border */
+.pure-button::-moz-focus-inner{
+    padding: 0;
+    border: 0;
+}
+
+.pure-button-primary,
+.pure-button-selected,
+a.pure-button-primary,
+a.pure-button-selected {
+    background-color: rgb(0, 120, 231);
+    color: #fff;
+}
